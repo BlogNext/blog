@@ -1,0 +1,127 @@
+.detail {
+  width: 100%;
+  min-height: 100vh;
+  color: #aaa;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  background-color: rgba(25, 25, 25, 1);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.header {
+  padding: 30px 0;
+  flex-direction: column;
+  background-color: #1D1F20;
+}
+
+.title {
+  color: #fff;
+}
+
+.info_icon {
+  width: 14px;
+  height: 14px;
+}
+
+.info>div {
+  display: inline-block;
+  padding: 0 5px;
+  color: #777 !important;
+}
+
+.info>div>span {
+  margin-left: 10px;
+}
+
+.content {
+  padding: 20px;
+}
+
+.main {
+  background-color: #212121;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.main:hover {
+  box-shadow: 0 8px 10px rgba(62, 147, 241, 0.37) !important
+}
+
+.main_code {
+  background: #30303b;
+  position: relative;
+}
+
+.main_pre {
+  background: #30303b;
+  position: relative;
+  padding: 5px 0 5px 3.8em;
+  border-radius: 12px;
+}
+
+.main_pre>span:first-child {
+  padding: 0;
+}
+
+.main span[line-row] {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em;
+  letter-spacing: -1px;
+  border-right: 1px solid #999;
+  user-select: none;
+  counter-reset: linenumber;
+}
+
+.main span[line-row]>span {
+  pointer-events: none;
+  display: block;
+  counter-increment: linenumber;
+}
+
+.main span[line-row]>span::before {
+  content: counter(linenumber);
+  color: #999;
+  display: block;
+  padding-right: .8em;
+  text-align: right
+}
+
+.main h1, .main h2, .main h3, .main h4, .main h5, .main h6 {
+  margin-top: 1em !important;
+  color: #aaa !important;
+  font-weight: bold !important;
+}
+
+.main p>code:not([class]) {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+
+.main p img {
+  width: 100%;
+  /* 图片居中 */
+  margin: 0 auto;
+  display: flex;
+}
+
+.main img {
+  width: 100%;
+}
+
+.main a[href] {
+  text-decoration: underline
+}
+
+.main strong {
+  font-weight: bold;
+}
