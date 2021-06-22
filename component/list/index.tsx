@@ -3,7 +3,7 @@
  * @Author: LaughingZhu
  * @Date: 2021-05-12 21:17:25
  * @LastEditros: 
- * @LastEditTime: 2021-06-22 20:58:37
+ * @LastEditTime: 2021-06-22 23:03:44
  */
 import React, { useEffect, useState } from 'react'
 import { Badge, Pagination } from 'antd'
@@ -23,8 +23,7 @@ interface IProps {
 }
 function List (props: IProps) {
   dayjs.extend(localizedFormat)
-  console.log(props.pageConf)
-  const detailView = (data) => {
+  const detailView = (data: any) => {
     // window.localStorage.setItem('detail', JSON.stringify(data))
     router.push({
       pathname: `/detail/${data.id}`,
@@ -76,8 +75,4 @@ function List (props: IProps) {
 }
 
 
-export default connect((store: any) => (
-  {
-    type_id: store.type_id,
-  }
-))(List);
+export default connect()(List);

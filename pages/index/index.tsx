@@ -3,7 +3,7 @@
  * @Author: LaughingZhu
  * @Date: 1985-10-26 16:15:00
  * @LastEditros: 
- * @LastEditTime: 2021-06-22 21:04:30
+ * @LastEditTime: 2021-06-22 23:05:08
  */
 import Head from 'next/head'
 import Image from 'next/image'
@@ -12,7 +12,7 @@ import Header from '../../component/header';
 import Aside from '../../component/aslide'
 import SlideBar from '../../component/slidebar'
 import Slogan from '../../component/slogan'
-import List from '../../component/lsit'
+import List from '../../component/list'
 import { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import { getList } from '../../api';
@@ -24,9 +24,7 @@ interface IProps {
   dispatch: any,
   type_id: any
 }
-interface IState {
-  cateGoryConf: any
-}
+
 
 function BasicLayout (props: IProps) {
   const [pageConf, setPageConf] = useState({page: 1, per_page: 10, total: 1})
@@ -37,7 +35,7 @@ function BasicLayout (props: IProps) {
 
 
   const _initList = async() => {
-    const res = await getList({...pageConf, id: props.type_id})
+    const res = await getList({...pageConf, blog_type_id: props.type_id})
     if(res.code === 0) {
       setBlogList(res.data.list)
       setPageConf({
@@ -79,4 +77,8 @@ function BasicLayout (props: IProps) {
 }
 
 
-export default connect()(BasicLayout);
+export default connect((store: any) => (
+  {
+    type_id: store.type_id,
+  }
+))(BasicLayout);

@@ -4,6 +4,7 @@ import { getBlogBySort, getBlogInfo } from '../../api'
 import styles from './style.module.css'
 import * as dayjs from 'dayjs'
 import { message } from 'antd';
+import router from 'next/router'
 import { getLocalStorage, setLocalStorage, isBrowser } from '../../utils/utils';
 import common from '../../styles/common.module.css'
 const {flex} = common
@@ -192,7 +193,7 @@ function Slidebar (props: any) {
 
   const listHandle = (detail_id: number) => {
     // history.replace(`/detail/${detail_id}`)
-    history.replace({
+    router.push({
       pathname: `/detail/${detail_id}`,
     })
   }

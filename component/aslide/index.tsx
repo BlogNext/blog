@@ -5,6 +5,8 @@ import { Divider, Tooltip } from 'antd'
 import { getLocalStorage, isBrowser, setLocalStorage } from '../../utils/utils'
 import styles from './style.module.css'
 import globel from '../../styles/common.module.css'
+import router from 'next/router';
+import { connect } from 'react-redux';
 const { flex } = globel
 const { aside, info, avatar, slogan, container, menu, menu_item, name, item_title, item_children, item_children_icon, item_children_label, tools, tools_item, tools_item_icon, tools_item_label } = styles
 
@@ -136,13 +138,13 @@ function Aside (props: any) {
     if (location.href.indexOf('/detail') < 0) {
       // 在首页，更新分类信息
       props.dispatch({
-        type: 'menu/setType',
+        type: 'setTypeHandle',
         payload: {id}
       })
     } else {
       // 不在首页，返回首页
-      history.push({
-        pathname: '/',
+      router.push({
+        pathname: '/index',
       })
     }
     
@@ -205,16 +207,5 @@ function Aside (props: any) {
   )
 }
 
-// function mapStateToProps(state) {
-//   const { menuList, page, pageSize, total, token} = state.menu;
-//   return {
-//     loading: state.loading.models.menu,
-//     menuList,
-//     page,
-//     pageSize,
-//     total,
-//     token
-//   };
-// }
 
-export default Aside;
+export default connect()(Aside);

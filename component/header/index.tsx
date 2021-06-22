@@ -7,16 +7,18 @@ import styles from './header.module.css'
 import globle from '../../styles/common.module.css'
 import { connect } from 'react-redux';
 import router from 'next/router';
+import { withRouter } from 'next/router'
+
 const {flex} = globle
 
 function Header (props: any) {
   const [data, setData] = useState([])
   const [value, setValue] = useState(undefined)
   const [fetching, setFetching] = useState(false)
-  useEffect(() => {
-  }, [''])
+  const router = props.router
 
-  const getSearch = async(value) => {
+
+  const getSearch = async(value: any) => {
     
     let res = await getSearchList({keyword: value})
     if(res.code === 0) {
@@ -28,7 +30,7 @@ function Header (props: any) {
 
   const fetchData = debounce(getSearch, 800)
 
-  const handleChange = (value) => {
+  const handleChange = (value: any) => {
     router.push({
       pathname: '/detail',
       query: {
@@ -39,17 +41,16 @@ function Header (props: any) {
 
   const titleHandle = () => {
 
-    const hashname = window.location.hash
-    if(hashname === '#/') {
+    if(router === '/index') {
       // 在首页，清除分类信息
       props.dispatch({
-        type: 'menu/cleanType',
-        payload: {}
+        type: 'setTypeHandle',
+        payload: {id: null}
       })
     } else {
       // 不在首页，返回首页
       router.push({
-        pathname: '/',
+        pathname: '/index',
       })
     }
   }
@@ -101,10 +102,4 @@ function Header (props: any) {
 }
 
 
-export default connect((store: any) =>
-({
-  menuList: store.menuList,
-  page: store.page,
-  pageSize: store.pageSize,
-  total: store.total})
-)(Header);
+export default connect()(withRouter(Header));
