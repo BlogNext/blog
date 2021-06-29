@@ -3,7 +3,7 @@
  * @Author: LaughingZhu
  * @Date: 1985-10-26 16:15:00
  * @LastEditros: 
- * @LastEditTime: 2021-06-29 18:22:34
+ * @LastEditTime: 2021-06-29 20:18:12
  */
 import Head from 'next/head'
 import Image from 'next/image'
@@ -14,8 +14,8 @@ import SlideBar from '../component/slidebar'
 import Slogan from '../component/slogan'
 import List from '../component/list'
 import { useState, useEffect } from 'react'
-import { connect } from 'react-redux';
 import { getList } from '../api';
+import { connect } from 'react-redux';
 
 interface IProps {
   children: any,

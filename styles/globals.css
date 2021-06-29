@@ -73,3 +73,27 @@ a {
 .ant-select-selector {
   border-radius: 15px !important;
 }
+
+.ant-pagination-item a {
+  color: #aaa;
+}
+
+.ant-pagination-prev,
+.ant-pagination-next {
+  border-radius: 10px;
+}
+
+.ant-pagination-prev,
+.ant-pagination-next > button {
+  color: #aaa;
+  background-color: #212121;
+  border: none;
+  font-weight: bold;
+}
+
+.ant-pagination-item-active a {
+  color: #fff;
+  font-weight: bold;
+  background-color: #363434 !important;
+
+}
