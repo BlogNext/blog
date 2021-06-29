@@ -41,7 +41,7 @@ function Header (props: any) {
 
   const titleHandle = () => {
 
-    if(router === '/index') {
+    if(router === '/') {
       // 在首页，清除分类信息
       props.dispatch({
         type: 'setTypeHandle',
@@ -50,7 +50,7 @@ function Header (props: any) {
     } else {
       // 不在首页，返回首页
       router.push({
-        pathname: '/index',
+        pathname: '/',
       })
     }
   }

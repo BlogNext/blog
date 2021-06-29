@@ -3,7 +3,7 @@
  * @Author: LaughingZhu
  * @Date: 2021-06-18 20:59:37
  * @LastEditros: 
- * @LastEditTime: 2021-06-22 22:41:41
+ * @LastEditTime: 2021-06-29 20:06:47
  */
 import styles from './detial.module.css'
 import Header from '../../component/header';
@@ -12,27 +12,14 @@ import SlideBar from '../../component/slidebar'
 import marked from 'marked'
 import { Badge } from 'antd'
 import * as dayjs from 'dayjs'
-import hljs from 'highlight.js';
-import 'highlight.js/styles/darcula.css'
+const hljs = require('highlight.js')
+import 'highlight.js/styles/base16/material-darker.css'
 import { UserOutlined, FieldTimeOutlined, MessageOutlined, EyeOutlined, BarChartOutlined } from '@ant-design/icons'
-import { useRouter } from 'next/router'
 import common from '../../styles/common.module.css'
-hljs.initHighlightingOnLoad()
+
 let localizedFormat = require('dayjs/plugin/localizedFormat')
 
-marked.setOptions({ // marked 设置
-  renderer: new marked.Renderer(),
-  gfm: true,
-  // tables: true,
-  breaks: true,
-  pedantic: false,
-  sanitize: false,
-  smartLists: true,
-  smartypants: false,
-  highlight: function (code: any) {
-    return beforNumber(hljs.highlightAuto(code).value)
-  }
-})
+
 
 /**
  * 为代码块显示添加行号
@@ -57,11 +44,26 @@ interface IProps {
   detail: any;
 }
 const DetailLayout = (props: IProps) => {
-  const router = useRouter()
-  const { id } = router.query
+
   const { detail } = props
 
   dayjs.extend(localizedFormat)
+  
+  marked.setOptions({ // marked 设置
+    renderer: new marked.Renderer(),
+    gfm: true,
+    // tables: true,
+    breaks: true,
+    pedantic: false,
+    sanitize: false,
+    smartLists: true,
+    smartypants: false,
+    highlight: function (code: any) {
+      return beforNumber(hljs.highlightAuto(code).value)
+    }
+  })
+
+  let html = marked(detail.content).replace(/img/g, 'img referrerPolicy="no-referrer"')
 
 
   return (
@@ -106,7 +108,7 @@ const DetailLayout = (props: IProps) => {
                     </div>
                   </div>
                   <div className={styles.content} >
-                    <div className={styles.main} dangerouslySetInnerHTML={{ __html: marked(detail.content).replace(/img/g, 'img referrerPolicy="no-referrer"') }}></div>
+                    <div className={styles.main} dangerouslySetInnerHTML={{ __html: html }}></div>
                   </div>
                 </div>
               )}
@@ -121,7 +123,7 @@ const DetailLayout = (props: IProps) => {
   )
 }
 
-DetailLayout.getInitialProps = async (context: any) => {
+export async function getServerSideProps (context: any) {
   // const res = await getDetail({id: context.query.id})
   const res = await fetch(`https://blog.laughingzhu.cn/front/blog/detail?id=${context.query.id}`, {
     method: 'GET',
@@ -136,7 +138,7 @@ DetailLayout.getInitialProps = async (context: any) => {
   if (json.code === 0) {
     response = json.data
   }
-  return { detail: response }
+  return {props: {detail: response} }
 }
 
 // export async function getStaticProps(params) {

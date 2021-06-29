@@ -144,7 +144,7 @@ function Aside (props: any) {
     } else {
       // 不在首页，返回首页
       router.push({
-        pathname: '/index',
+        pathname: '/',
       })
     }
     

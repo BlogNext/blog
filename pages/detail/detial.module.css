@@ -50,19 +50,22 @@
   box-shadow: 0 8px 10px rgba(62, 147, 241, 0.37) !important
 }
 
-.main_code {
+.main code {
+  width: 100%;
   background: #30303b;
   position: relative;
 }
 
-.main_pre {
+.main pre {
+  width: 100%;
   background: #30303b;
   position: relative;
   padding: 5px 0 5px 3.8em;
   border-radius: 12px;
 }
 
-.main_pre>span:first-child {
+
+.main pre>span:first-child {
   padding: 0;
 }
 
@@ -99,7 +102,7 @@
   font-weight: bold !important;
 }
 
-.main p>code:not([class]) {
+.main p > code:not([class]) {
   padding: 2px 4px;
   font-size: 90%;
   color: #c7254e;

@@ -3,19 +3,19 @@
  * @Author: LaughingZhu
  * @Date: 1985-10-26 16:15:00
  * @LastEditros: 
- * @LastEditTime: 2021-06-22 23:05:08
+ * @LastEditTime: 2021-06-29 18:22:34
  */
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../../styles/common.module.css'
-import Header from '../../component/header';
-import Aside from '../../component/aslide'
-import SlideBar from '../../component/slidebar'
-import Slogan from '../../component/slogan'
-import List from '../../component/list'
+import styles from '../styles/common.module.css'
+import Header from '../component/header';
+import Aside from '../component/aslide'
+import SlideBar from '../component/slidebar'
+import Slogan from '../component/slogan'
+import List from '../component/list'
 import { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
-import { getList } from '../../api';
+import { getList } from '../api';
 
 interface IProps {
   children: any,
