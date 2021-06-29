@@ -3,7 +3,7 @@
  * @Author: LaughingZhu
  * @Date: 1985-10-26 16:15:00
  * @LastEditros: 
- * @LastEditTime: 2021-06-29 20:43:08
+ * @LastEditTime: 2021-06-29 21:11:27
  */
 import Head from 'next/head'
 import Image from 'next/image'
@@ -30,9 +30,8 @@ function BasicLayout (props: IProps) {
   const [pageConf, setPageConf] = useState({page: 1, per_page: 10, total: 1})
   const [bloglist, setBlogList] = useState([])
   useEffect (() => {
-    backTop()
+    backTop();
     _initList();
-
   }, [pageConf.page, props.type_id])
 
   const backTop = () => {
