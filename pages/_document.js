@@ -3,7 +3,7 @@
  * @Author: LaughingZhu
  * @Date: 2021-06-18 23:43:42
  * @LastEditros: 
- * @LastEditTime: 2021-06-29 21:09:49
+ * @LastEditTime: 2021-06-29 21:17:53
  */
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
@@ -18,7 +18,7 @@ class MyDocument extends Document {
           <NextScript  />
         </body>
         <Head >
-          <script src="/bg_canvas.js"></script>
+          <script text src="/bg_canvas.js"></script>
         </Head >
       </Html>
     )
