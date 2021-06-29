@@ -3,7 +3,7 @@
  * @Author: LaughingZhu
  * @Date: 1985-10-26 16:15:00
  * @LastEditros: 
- * @LastEditTime: 2021-06-29 20:18:12
+ * @LastEditTime: 2021-06-29 20:43:08
  */
 import Head from 'next/head'
 import Image from 'next/image'
@@ -30,8 +30,17 @@ function BasicLayout (props: IProps) {
   const [pageConf, setPageConf] = useState({page: 1, per_page: 10, total: 1})
   const [bloglist, setBlogList] = useState([])
   useEffect (() => {
-    _initList()
+    backTop()
+    _initList();
+
   }, [pageConf.page, props.type_id])
+
+  const backTop = () => {
+    let anchorElement = document.getElementById('main');
+    if(anchorElement) {        // 如果对应id的锚点存在，就跳转到锚点
+      anchorElement.scrollIntoView({block: 'start', behavior: 'smooth'});
+    }
+  }
 
 
   const _initList = async() => {
@@ -57,7 +66,7 @@ function BasicLayout (props: IProps) {
 
   return (
 
-    <div className={styles.layout} >
+    <div className={styles.layout} id='main'>
       <div className={styles.header}>
         <div className={styles.header_container}><Header /></div>
       </div>
