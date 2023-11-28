@@ -1,6 +1,6 @@
-
-document.writeln("<canvas id=\'cache-canvas\' class=\'nodes-canvas cache-canvas\'></canvas>");
-document.writeln("<canvas id=\'main-canvas\' class=\'nodes-canvas main-canvas\'></canvas>");
+// document.body.appendChild("<canvas id='cache-canvas' className='nodes-canvas cache-canvas' /><canvas id='main-canvas' className='nodes-canvas main-canvas' />");
+// document.writeln("<canvas id=\'cache-canvas\' class=\'nodes-canvas cache-canvas\'></canvas>");
+// document.writeln("<canvas id=\'main-canvas\' class=\'nodes-canvas main-canvas\'></canvas>");
 ! function (e, t) {
   "object" == typeof exports && "object" == typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define([], t) : "object" == typeof exports ? exports.dat = t() : e.dat = t()
 }(this, function () {
@@ -1929,8 +1929,8 @@ document.writeln("<canvas id=\'main-canvas\' class=\'nodes-canvas main-canvas\'>
 });
 const cacheCanvas = document.getElementById('cache-canvas');
 const canvas = document.getElementById('main-canvas');
-const cacheCtx = cacheCanvas.getContext('2d');
-const ctx = canvas.getContext('2d');
+const cacheCtx = cacheCanvas?.getContext('2d');
+const ctx = canvas?.getContext('2d');
 const __bounds = {};
 const __dpr = window.devicePixelRatio || 1;
 let __nodePaths = [];
