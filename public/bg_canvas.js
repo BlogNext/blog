@@ -2119,7 +2119,14 @@ function animateNodes(startX, startY, endX, endY) {
   tt = 1
 }
 
+function checkBounds() {
+  if (!__bounds?.width) {
+    handlePageLoad()
+  }
+}
+
 function handleClick(e) {
+  checkBounds()
   animateNodes(e.pageX, e.pageY)
 }
 
@@ -2129,6 +2136,7 @@ function handleTouch(e) {
 }
 
 function handleTouchMove(e) {
+  checkBounds()
   const touch = e.touches[0];
   tt = touch.pageX / __bounds.width
 }
@@ -2153,6 +2161,7 @@ function handlePageLoad() {
 }
 
 function handleMouseMove(e) {
+  checkBounds()
   tt = e.pageX / __bounds.width
 }
 
