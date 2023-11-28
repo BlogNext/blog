@@ -1,3 +1,6 @@
+import Aside from '@/components/Aside';
+import Header from '@/components/Header';
+import Sliderbar from '@/components/Sliderbar';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
@@ -13,9 +16,17 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>{children}</body>
-
-      <NoSSR />
+      <body
+        className={`${inter.className} h-screen flex flex-col justify-start items-center md:w-full lg:px-24 xl:px-32 2xl:px-80 relative`}
+      >
+        <NoSSR />
+        <Header />
+        <div className='w-full flex-auto flex flex-row z-10'>
+          <Aside />
+          {children}
+          <Sliderbar />
+        </div>
+      </body>
     </html>
   );
 }

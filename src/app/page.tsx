@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className='flex py-8 w-screen h-screen flex-col items-center justify-between'>
+    <main className='flex-auto flex py-8 flex-col items-center justify-between'>
       <div className='flex w-full flex-auto flex-col justify-start align-top border-y-rose-700'>
         111
       </div>
