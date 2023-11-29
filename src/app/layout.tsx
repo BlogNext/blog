@@ -4,6 +4,7 @@ import Sliderbar from '@/components/Sliderbar';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 const NoSSR = dynamic(() => import('../components/bg'), { ssr: false });
 const inter = Inter({ subsets: ['latin'] });
@@ -19,9 +20,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={`${inter.className} h-screen flex flex-col justify-start items-center md:w-full lg:px-24 xl:px-32 2xl:px-80 relative`}
       >
+        <Script src='//at.alicdn.com/t/c/font_2023298_54h2u6chv1f.js' />
         <NoSSR />
         <Header />
-        <div className='w-full flex-auto flex flex-row z-10'>
+        <div className='w-full flex-auto flex flex-row z-10 overflow-hidden'>
           <Aside />
           {children}
           <Sliderbar />
