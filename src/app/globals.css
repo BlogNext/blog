@@ -44,3 +44,33 @@ body {
   height: 100vh;
   background: #151617 !important;
 }
+
+.slogan::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: transparent;
+  content: attr(data-spotlight);
+  -webkit-clip-path: ellipse(50px 50px at 0% 50%);
+  clip-path: ellipse(50px 50px at 0% 50%);
+  background: url(../../public/images/spotlight.jpg) center no-repeat;
+  background-size: 150%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: spotlight 5s infinite;
+}
+
+@keyframes spotlight {
+  0% {
+    -webkit-clip-path: ellipse(50px 50px at 0% 50%);
+    clip-path: ellipse(50px 50px at 0% 50%);
+  }
+  50% {
+    -webkit-clip-path: ellipse(50px 50px at 100% 50%);
+    clip-path: ellipse(50px 50px at 100% 50%);
+  }
+  100% {
+    -webkit-clip-path: ellipse(50px 50px at 0% 50%);
+    clip-path: ellipse(50px 50px at 0% 50%);
+  }
+}
