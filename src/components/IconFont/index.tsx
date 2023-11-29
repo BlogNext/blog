@@ -14,7 +14,7 @@ const IconFont: FC<IconFontProps> = ({ name, size = 14, color }) => {
     color: color ? color : 'inherit'
   };
   return (
-    <svg className={classNames(`fill-current overflow-hidden`)} aria-hidden='true' style={styles}>
+    <svg className={classNames(`overflow-hidden fill-current`)} aria-hidden='true' style={styles}>
       <use className='m-0' xlinkHref={`#${name}`} />
     </svg>
   );
