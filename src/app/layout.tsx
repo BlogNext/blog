@@ -18,12 +18,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='en'>
       <body
-        className={`${inter.className} h-screen flex flex-col justify-start items-center md:w-full lg:px-24 xl:px-32 2xl:px-80 relative`}
+        className={`${inter.className} relative flex h-screen flex-col items-center justify-start md:w-full lg:px-24 xl:px-32 2xl:px-80`}
       >
-        <Script src='//at.alicdn.com/t/c/font_2023298_54h2u6chv1f.js' />
+        <Script src='//at.alicdn.com/t/c/font_2023298_s3opdq0sy8m.js' />
         <NoSSR />
         <Header />
-        <div className='w-full flex-auto flex flex-row z-10 overflow-hidden'>
+        <div className='z-10 flex w-full flex-auto flex-row overflow-hidden'>
           <Aside />
           {children}
           <Sliderbar />
