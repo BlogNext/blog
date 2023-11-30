@@ -1,6 +1,7 @@
 import Aside from '@/components/Aside';
 import Header from '@/components/Header';
 import Sliderbar from '@/components/Sliderbar';
+import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Aside />
           {children}
           <Sliderbar />
+          <Analytics />
         </div>
       </body>
     </html>
