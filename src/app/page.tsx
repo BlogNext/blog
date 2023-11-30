@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className='flex flex-auto flex-col items-center justify-between'>
-      <div className='flex w-full flex-auto flex-col justify-start border-y-rose-700 align-top'>
+    <main className='flex flex-auto flex-col items-center justify-between overflow-auto'>
+      <div className='flex w-full flex-none flex-col justify-start border-y-rose-700 align-top'>
         <div className='relative flex w-full flex-col items-center justify-center bg-[#1D1F20] p-[20px] text-[30px] leading-normal text-[#aaa]'>
           <div
             className='slogan relative'
@@ -20,7 +20,17 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className='w-full text-center'>
+      <div className='flex w-full flex-auto flex-col items-center justify-start p-[20px]'>
+        {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
+          <div
+            key={index}
+            className='mb-[20px] w-full rounded-[6px] bg-[#212121] p-[30px] transition-all'
+          >
+            content
+          </div>
+        ))}
+      </div>
+      <div className='w-full flex-none text-center'>
         <span>Copyright © 2020-2021 LaughingZhu 版权所有 </span>
         <a href='https://beian.miit.gov.cn/' target='_blank'>
           京ICP备2020039821号-1
