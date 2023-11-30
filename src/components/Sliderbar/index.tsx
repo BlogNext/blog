@@ -57,7 +57,7 @@ export default function Sliderbar() {
   const computeTransX = useMemo(() => tabIndex * 100 * 2 + 100 / 3 + 100 / 3 / 2, [tabIndex]);
 
   return (
-    <div className='flex h-full w-[240px] flex-col justify-start overflow-hidden bg-[#1D1F20] pb-[25px]'>
+    <div className='flex h-full w-[240px] flex-none flex-col justify-start overflow-hidden bg-[#1D1F20] pb-[25px]'>
       <div className='flex flex-col overflow-hidden'>
         <div className='relative flex h-[60px] w-full flex-none flex-row'>
           {TOP_MENU.map((item, index) => (
