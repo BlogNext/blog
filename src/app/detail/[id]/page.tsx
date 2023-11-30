@@ -1,7 +1,3 @@
-export default function Detail() {
-  return (
-    <div>
-      <div>detail</div>
-    </div>
-  );
+export default function Detail({ params }: { params: { id: string } }) {
+  return <div>My Post: {params.id}</div>;
 }

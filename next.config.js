@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  // output: './build',
+  distDir: 'build'
+  // compress: true,
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
