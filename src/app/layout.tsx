@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Script src='//at.alicdn.com/t/c/font_2023298_s3opdq0sy8m.js' />
         <NoSSR />
         <Header />
-        <div className='z-10 flex w-full flex-auto flex-row overflow-hidden'>
+        <div className='z-10 mt-[1px] flex w-full flex-auto flex-row overflow-hidden'>
           <Aside />
           {children}
           <Sliderbar />
