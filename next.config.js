@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // output: './build',
-  distDir: 'build'
+  // distDir: 'build'
   // compress: true,
 };
 
