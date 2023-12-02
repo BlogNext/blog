@@ -11,6 +11,7 @@ export default function Aside() {
         <Image
           src={Avatar}
           alt='LaughingZhu'
+          priority={true}
           className='h-[107px] w-[96px] cursor-pointer rounded-full shadow-[2px_2px_3px_transparent] transition-all hover:rotate-[360deg] hover:scale-[1.2] hover:animate-toBottom'
         />
         <div className='mt-[10px] text-sm font-bold text-[#eaebed]'>LaughingZhu</div>
