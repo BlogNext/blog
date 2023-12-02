@@ -1,17 +1,16 @@
-async function _initDetail(id: string) {
-  'use server';
-  const res = await fetch('https://sudoku.lyyyw.cn/api/v1/my/about');
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data');
-  }
-  return res.json();
-}
+import { getDetail } from '@/server/api/query';
+import { HydrationBoundary, QueryClient, dehydrate } from '@tanstack/react-query';
+import Detail from '../detail';
+export default async function DetailPage({ params }: { params: { id: string } }) {
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery({
+    queryKey: ['posts'],
+    queryFn: getDetail
+  });
 
-export default async function Detail({ params }: { params: { id: string } }) {
-  const data = await _initDetail(params.id);
-  console.log(data);
-  return <div className='flex flex-auto flex-col'>My Post: {data.data.title}</div>;
+  return (
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <Detail />
+    </HydrationBoundary>
+  );
 }
