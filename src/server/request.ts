@@ -12,10 +12,14 @@ export async function request(url: string, method: Method = 'GET'): Promise<any>
   return new Promise(async (resolve, reject) => {
     try {
       const res = await fetch(`${config.base_url}${url}`, option);
-      if (res.status !== 200) {
+      console.log(res.status, '----res');
+      if (res.status === 200) {
         resolve(res.json());
       } else {
-        reject(res.json());
+        reject({
+          code: 500,
+          message: '请求失败'
+        });
       }
     } catch (error) {
       reject({
