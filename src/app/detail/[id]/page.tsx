@@ -1,28 +1,16 @@
-'use server';
-
-import { useGetDetail } from '@/server/api/query';
-import { QueryClient, dehydrate } from '@tanstack/react-query';
-
-export default async function Detail({ params }: { params: { id: string } }) {
-  const { data: detail, isPending, error } = useGetDetail(params.id);
-  if (isPending) return 'Loading...';
-
-  if (error) return 'An error has occurred: ' + error.message;
-
-  return <div className='flex flex-auto flex-col'>My Post:</div>;
-}
-
-export async function getStaticProps() {
+import { getDetail } from '@/server/api/query';
+import { HydrationBoundary, QueryClient, dehydrate } from '@tanstack/react-query';
+import Detail from '../detail';
+export default async function DetailPage({ params }: { params: { id: string } }) {
   const queryClient = new QueryClient();
-
   await queryClient.prefetchQuery({
-    queryKey: ['posts', 10],
-    queryFn: () => {}
+    queryKey: ['posts'],
+    queryFn: getDetail
   });
 
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient)
-    }
-  };
+  return (
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <Detail />
+    </HydrationBoundary>
+  );
 }
