@@ -1,4 +1,5 @@
-import { ASIDE_MENUS, BOTTOM_MENUS } from '@/config';
+// import { ASIDE_MENUS, BOTTOM_MENUS } from '@/config';
+import { ASIDE_MENUS, BOTTOM_MENUS } from '@/type';
 import Avatar from '@public/images/avatar.jpg';
 import Image from 'next/image';
 import IconFont from '../IconFont';

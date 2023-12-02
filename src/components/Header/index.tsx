@@ -1,4 +1,4 @@
-import { TOP_MENUS } from '@/config';
+import { TOP_MENUS } from '@/type';
 import IconFont from '../IconFont';
 
 export default function Header() {
