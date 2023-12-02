@@ -20,7 +20,10 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@public/*": ["./public/*"]
+      "@public/*": ["./public/*"],
+      "@types/*": ["./types/*"],
+      "@components/*": ["./components/*"],
+      "@config/*": ["./config/*"]
     }
   },
   "include": [
