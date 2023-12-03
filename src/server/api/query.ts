@@ -9,5 +9,5 @@ export const useGetDetail = (id: string) => {
 };
 
 export const getDetail = (): Promise<any> => {
-  return request('/blog', 'GET');
+  return request('/cloud/cloud-predict', 'GET');
 };
