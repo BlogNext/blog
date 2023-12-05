@@ -15,11 +15,19 @@
   "dependencies": {
     "@tanstack/react-query": "^5.10.0",
     "@tanstack/react-query-devtools": "^5.10.0",
+    "@trpc/client": "^10.44.1",
+    "@trpc/next": "^10.44.1",
+    "@trpc/react-query": "^10.44.1",
+    "@trpc/server": "^10.44.1",
     "@vercel/analytics": "^1.1.1",
+    "better-sqlite3": "^9.2.2",
+    "drizzle-kit": "^0.20.6",
+    "drizzle-orm": "^0.29.1",
     "lodash-es": "^4.17.21",
     "next": "14.0.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^5.10.0",
@@ -47,6 +55,6 @@
     "safari 12"
   ],
   "volta": {
-    "node": "20.10.0"
+    "node": "18.18.0"
   }
 }

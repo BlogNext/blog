@@ -24,6 +24,7 @@
       "@types/*": ["./types/*"],
       "@components/*": ["./components/*"],
       "@config/*": ["./config/*"]
+      // "@server/*": ["./server/*"],
     }
   },
   "include": [
