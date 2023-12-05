@@ -1,4 +1,6 @@
+'use client';
 import { Metadata } from 'next';
+import { trpc } from './_trpc/client';
 
 export const metadata: Metadata = {
   title: 'LaughingZhu的技术文章记录',
@@ -7,6 +9,8 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  const getTodos = trpc.getTodos.useQuery();
+  console.log(getTodos.data, 'todos');
   return (
     <main className='flex flex-auto flex-col items-center justify-between overflow-auto'>
       <div className='flex w-full flex-none flex-col justify-start border-y-rose-700 align-top'>

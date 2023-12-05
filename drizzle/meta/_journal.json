@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1701765269138,
+      "tag": "0000_tricky_jean_grey",
+      "breakpoints": true
+    }
+  ]
+}

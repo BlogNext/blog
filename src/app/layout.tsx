@@ -1,12 +1,12 @@
 import Aside from '@/components/Aside';
 import Header from '@/components/Header';
 import Sliderbar from '@/components/Sliderbar';
-import TanstackProvider from '@/providers';
 import { Analytics } from '@vercel/analytics/react';
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import React from 'react';
+import Provider from './_trpc/Provider';
 import './globals.css';
 const NoSSR = dynamic(() => import('../components/bg'), { ssr: false });
 const inter = Inter({ subsets: ['latin'] });
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       >
         <Script src='//at.alicdn.com/t/c/font_2023298_s3opdq0sy8m.js' />
         <NoSSR />
-        <TanstackProvider>
+        <Provider>
           <Header />
           <div className='z-10 mt-[1px] flex w-full flex-auto flex-row overflow-hidden'>
             <Aside />
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Sliderbar />
             <Analytics />
           </div>
-        </TanstackProvider>
+        </Provider>
       </body>
     </html>
   );
