@@ -1,7 +1,3 @@
-import Aside from '@/components/Aside';
-import Header from '@/components/Header';
-import Sliderbar from '@/components/Sliderbar';
-import { Analytics } from '@vercel/analytics/react';
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
@@ -26,15 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       >
         <Script src='//at.alicdn.com/t/c/font_2023298_s3opdq0sy8m.js' />
         <NoSSR />
-        <Provider>
-          <Header />
-          <div className='z-10 mt-[1px] flex w-full flex-auto flex-row overflow-hidden'>
-            <Aside />
-            {children}
-            <Sliderbar />
-            <Analytics />
-          </div>
-        </Provider>
+        <Provider>{children}</Provider>
       </body>
     </html>
   );

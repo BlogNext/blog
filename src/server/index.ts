@@ -6,7 +6,7 @@ import { z } from 'zod';
 
 import { publicProcedure, router } from './trpc';
 
-import { todos } from '@/db/schema';
+import { Blog, todos } from '@/db/schema';
 
 const sqlite = new Database('sqlite.db');
 const db = drizzle(sqlite);
@@ -35,7 +35,10 @@ export const appRouter = router({
         .where(eq(todos.id, opts.input.id))
         .run();
       return true;
-    })
+    }),
+  getArticles: publicProcedure.query(async () => {
+    return await db.select().from(Blog).all();
+  })
 });
 
 export type AppRouter = typeof appRouter;

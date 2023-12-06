@@ -47,7 +47,11 @@ export const Blog = sqliteTable('blog', {
   /** 分类 */
   category_id: integer('category_id').notNull(),
   /** 标签 */
-  tag_id: integer('tag_id')
+  tag_id: integer('tag_id'),
+  /** 浏览量 */
+  view_counts: integer('view_count').notNull(),
+  /** 批注数 */
+  comment_counts: integer('comment_count').notNull()
 });
 
 /**
@@ -70,6 +74,23 @@ export const Tag = sqliteTable('tag', {
   id: integer('id').primaryKey({ autoIncrement: true }).notNull(),
   /** 标签名 */
   name: text('name').notNull()
+});
+
+/**
+ * Comment table
+ * 评论表
+ */
+export const Comment = sqliteTable('comment', {
+  /** comment id */
+  id: integer('id').primaryKey({ autoIncrement: true }).notNull(),
+  /** 评论内容 */
+  content: text('content').notNull(),
+  /** 评论时间 */
+  created_at: integer('created_at').notNull(),
+  /** 评论人 */
+  user_id: integer('user_id').notNull(),
+  /** 评论博客 */
+  blog_id: integer('blog_id').notNull()
 });
 
 // export const ThirdAuth = sqliteTable('third_auth', {

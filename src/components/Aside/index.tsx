@@ -1,10 +1,29 @@
 // import { ASIDE_MENUS, BOTTOM_MENUS } from '@/config';
-import { ASIDE_MENUS, BOTTOM_MENUS } from '@/type';
+'use client';
+import useLogin from '@/hooks/use-login';
+import { ASIDE_MENUS, BOTTOM_MENUS, MENU_ACTION, MEUN_TYPE } from '@/type';
 import Avatar from '@public/images/avatar.jpg';
 import Image from 'next/image';
 import IconFont from '../IconFont';
 
 export default function Aside() {
+  const { renderLogin, showLogin } = useLogin();
+
+  const onHandleBottomMenu = (e: React.MouseEvent<HTMLDivElement, MouseEvent>, menu: MEUN_TYPE) => {
+    e.stopPropagation();
+    switch (menu.action) {
+      case MENU_ACTION.Setting:
+        showLogin();
+        break;
+      case MENU_ACTION.Article:
+        break;
+      case MENU_ACTION.Comment:
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <div className='flex h-full w-[220px] flex-none flex-col bg-[#1D1F20]'>
       <div className='flex h-[219px] w-full flex-none flex-col items-center justify-center hover:bg-[url("/images/snow.gif")] hover:bg-contain'>
@@ -36,6 +55,7 @@ export default function Aside() {
             // <Tooltip placement='top' title={item.desc} key={`aside_tools_item-${index}`}>
             <div
               key={item.icon}
+              onClick={(e) => onHandleBottomMenu(e, item)}
               className='flex flex-auto cursor-pointer flex-col items-center justify-center px-[10px]'
             >
               <IconFont name={item.icon} size={18} />
@@ -45,6 +65,7 @@ export default function Aside() {
           );
         })}
       </div>
+      {renderLogin()}
     </div>
   );
 }
