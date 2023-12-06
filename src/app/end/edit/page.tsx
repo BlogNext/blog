@@ -1,18 +1,17 @@
 'use client';
+
 import Select from '@/components/Select';
 import '@uiw/react-md-editor/markdown-editor.css';
 import hljs from 'highlight.js';
 import dynamic from 'next/dynamic';
-import Quill from 'quill';
-import * as Emoji from 'quill-emoji';
 import 'quill-emoji/dist/quill-emoji.css';
 import 'quill/dist/quill.snow.css';
-import { useCallback, useEffect, useRef, useState } from 'react';
-const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false });
+import { useCallback, useRef, useState } from 'react';
+
+const QuillEditor = dynamic(() => import('react-quill'), { ssr: false });
 hljs.configure({
   languages: ['javascript', 'php', 'python']
 });
-Quill.register('modules/emoji', Emoji);
 
 const EDIT_OPTIONS = {
   debug: 'true',
@@ -55,6 +54,7 @@ const Edit = () => {
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
   const [category, setCategory] = useState<undefined | string | number>(undefined);
+
   const onHandleChange = (type: string, value: string | number) => {
     if (type === 'title') {
       setTitle(value as string);
@@ -71,14 +71,12 @@ const Edit = () => {
       return;
     }
   };
-  const editorRef = useRef<Quill>();
+  const editorRef = useRef<any>();
 
   const _initEditor = useCallback(() => {
-    if (editorRef.current) return;
-    editorRef.current = new Quill('#admin-edit-richtext', EDIT_OPTIONS);
+    if (editorRef.current && !document) return;
+    // Quill?.register('modules/emoji', Emoji);
   }, []);
-
-  useEffect(() => _initEditor, [_initEditor]);
 
   const onHandleSubmit = useCallback(() => {
     console.log('submit');
@@ -125,7 +123,7 @@ const Edit = () => {
         />
       </div>
       <div className='mt-[20px] w-full flex-none text-[#fff]'>
-        <div id='admin-edit-richtext' className='text-[#fff]' />
+        <QuillEditor />
       </div>
       <div className='mt-[100px] flex w-full flex-none justify-center'>
         <button onClick={onHandleSubmit} className='btn btn-active btn-wide'>
