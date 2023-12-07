@@ -16,8 +16,10 @@
     "@tanstack/react-query": "^5.10.0",
     "@tanstack/react-query-devtools": "^5.10.0",
     "@vercel/analytics": "^1.1.1",
+    "contentlayer": "^0.3.4",
     "lodash-es": "^4.17.21",
     "next": "14.0.3",
+    "next-contentlayer": "^0.3.4",
     "react": "^18",
     "react-dom": "^18"
   },
@@ -29,6 +31,7 @@
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "cssnano": "^6.0.1",
+    "date-fns": "^2.30.0",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
     "husky": "^8.0.3",
@@ -47,6 +50,6 @@
     "safari 12"
   ],
   "volta": {
-    "node": "20.10.0"
+    "node": "18.18.0"
   }
 }
