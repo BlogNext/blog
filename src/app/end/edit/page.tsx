@@ -1,13 +1,11 @@
 'use client';
-
 import Select from '@/components/Select';
-import '@uiw/react-md-editor/markdown-editor.css';
 import hljs from 'highlight.js';
 import dynamic from 'next/dynamic';
 import 'quill-emoji/dist/quill-emoji.css';
-import 'quill/dist/quill.snow.css';
-import { useCallback, useRef, useState } from 'react';
+import 'react-quill/dist/quill.snow.css';
 
+import { useCallback, useEffect, useState } from 'react';
 const QuillEditor = dynamic(() => import('react-quill'), { ssr: false });
 hljs.configure({
   languages: ['javascript', 'php', 'python']
@@ -31,21 +29,24 @@ const EDIT_OPTIONS = {
       ],
       handlers: {
         image: function () {
-          1111;
+          console.log(111);
         },
         emoji: function () {}
+      },
+
+      theme: {
+        background: '#fff'
+        // foreground: '#ff'
       }
     },
-    'emoji-toolbar': true, //是否展示出来
-    'emoji-textarea': false, //我不需要emoji展示在文本框所以设置为false
-    'emoji-shortname': true,
+    // 'emoji-toolbar': true, //是否展示出来
+    // 'emoji-textarea': false, //我不需要emoji展示在文本框所以设置为false
+    // 'emoji-shortname': true,
     syntax: {
       highlight: (text: string) => hljs.highlightAuto(text).value
     }
   },
-
   placeholder: 'Write something...',
-  // readOnly: true,
   theme: 'snow'
 };
 
@@ -53,6 +54,23 @@ const Edit = () => {
   const [editValue, setEditValue] = useState('');
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
+  // const getArticles = trpc.getArticles.useQuery();
+  // console.log(getArticles.data, 'getArticles');
+
+  useEffect(() => {
+    const fetchUploadToken = async () => {
+      try {
+        const response = await fetch('/api/qiniu');
+        const data = await response.json();
+        console.log('-----tooken', data);
+      } catch (error) {
+        console.error('Error fetching upload token:', error);
+      }
+    };
+
+    fetchUploadToken();
+  }, []);
+
   const [category, setCategory] = useState<undefined | string | number>(undefined);
 
   const onHandleChange = (type: string, value: string | number) => {
@@ -71,26 +89,10 @@ const Edit = () => {
       return;
     }
   };
-  const editorRef = useRef<any>();
-
-  const _initEditor = useCallback(() => {
-    if (editorRef.current && !document) return;
-    // Quill?.register('modules/emoji', Emoji);
-  }, []);
 
   const onHandleSubmit = useCallback(() => {
     console.log('submit');
   }, []);
-
-  console.log(
-    {
-      title,
-      desc,
-      category,
-      editValue
-    },
-    '-----form'
-  );
 
   return (
     <div className='flex w-full flex-auto flex-col overflow-auto'>
@@ -122,8 +124,8 @@ const Edit = () => {
           ]}
         />
       </div>
-      <div className='mt-[20px] w-full flex-none text-[#fff]'>
-        <QuillEditor />
+      <div className='mt-[20px] w-full flex-none '>
+        <QuillEditor {...EDIT_OPTIONS} className='quillEdit' />
       </div>
       <div className='mt-[100px] flex w-full flex-none justify-center'>
         <button onClick={onHandleSubmit} className='btn btn-active btn-wide'>

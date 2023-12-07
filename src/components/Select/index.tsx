@@ -11,11 +11,8 @@ interface SelectProps {
 export default function Select(props: SelectProps) {
   const { data, disabled, onChange, value, className = '' } = props;
   const onHandlechange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(e, e.target.value, '----selectChange');
     onChange?.(e.target.value);
   };
-
-  console.log(className, '-------classname');
 
   return (
     <select

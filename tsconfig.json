@@ -39,5 +39,6 @@
     "build/types/**/*.ts",
     "/build/types/**/*.ts"
   ],
+
   "exclude": ["node_modules"]
 }

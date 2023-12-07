@@ -74,3 +74,15 @@ body {
     clip-path: ellipse(50px 50px at 0% 50%);
   }
 }
+
+.quillEdit {
+  background: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+}
+.quillEdit .ql-editor {
+  min-height: 200px;
+  color: #444444;
+}
