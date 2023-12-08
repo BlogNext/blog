@@ -1,33 +1,12 @@
-import { Docs, allDocs } from '.contentlayer/generated';
-import { compareDesc, format, parseISO } from 'date-fns';
+import { allDocs } from '.contentlayer/generated';
+import MdxCard from '@/components/Mdx/card';
+import { compareDesc } from 'date-fns';
 import { Metadata } from 'next';
-import { getMDXComponent } from 'next-contentlayer/hooks';
-import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'LaughingZhu的技术文章记录',
   description: "LaughingZhu's Blog, 技术、生活、兴趣博客",
   keywords: 'LaughingZhu Blog LaughingZhu'
 };
-
-// console.log(allDocs, '-----allDocs');
-function PostCard(post: Docs) {
-  const Content = getMDXComponent(post.body.code);
-  return (
-    <div className='mb-8'>
-      <h2 className='mb-1 text-xl'>
-        <Link href={post.url} className='text-blue-700 hover:text-blue-900 dark:text-blue-400'>
-          {post.title}
-        </Link>
-      </h2>
-      <time dateTime={post.date} className='mb-2 block text-xs text-gray-600'>
-        {format(parseISO(post.date), 'LLLL d, yyyy')}
-      </time>
-      <div className='text-sm [&>*:last-child]:mb-0 [&>*]:mb-3'>
-        <Content />
-      </div>
-    </div>
-  );
-}
 
 export default function Home() {
   const posts = allDocs.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
@@ -45,16 +24,8 @@ export default function Home() {
         </div>
       </div>
       <div className='flex w-full flex-auto flex-col items-center justify-start p-[20px]'>
-        {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
-          <div
-            key={index}
-            className='mb-[20px] w-full rounded-[6px] bg-[#212121] p-[30px] transition-all'
-          >
-            content
-          </div>
-        ))}
         {posts.map((post, idx) => (
-          <PostCard key={idx} {...post} />
+          <MdxCard key={idx} {...post} />
         ))}
       </div>
       <div className='w-full flex-none text-center'>
