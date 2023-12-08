@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={`${inter.className} relative flex h-screen flex-col items-center justify-start md:w-full lg:px-24 xl:px-32 2xl:px-80`}
       >
-        <Script src='//at.alicdn.com/t/c/font_2023298_s3opdq0sy8m.js' />
+        <Script src='//at.alicdn.com/t/c/font_2023298_sq9wgxz8l8g.js' />
         <NoSSR />
         <TanstackProvider>
           <Header />

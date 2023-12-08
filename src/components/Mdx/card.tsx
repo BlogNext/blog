@@ -1,6 +1,7 @@
 import { Docs } from 'contentlayer/generated';
 import { format, parseISO } from 'date-fns/esm';
 import Link from 'next/link';
+import IconFont from '../IconFont';
 import Image from '../Image';
 export default function MdxCard(post: Docs) {
   console.log(post.cover, '-----post');
@@ -11,15 +12,24 @@ export default function MdxCard(post: Docs) {
       className='mb-[20px] flex w-full flex-row justify-start rounded-[6px] bg-[#212121] p-[30px] transition-all'
     >
       {post?.cover && <Image width={180} height={120} src={post.cover} alt={post.title} />}
-      <div className='ml-[20px]'>
-        <h2 className='mb-1 text-xl'>{post.title}</h2>
-        <div>{post.desc}</div>
-        <div className='flex flex-row justify-around'>
-          <div>{post.auth}</div>
-          <time dateTime={post.date} className='mb-2 block text-xs text-gray-600'>
-            {format(parseISO(post.date), 'LLLL d, yyyy')}
-          </time>
-          <div>count</div>
+      <div className='ml-[20px] flex h-full flex-auto flex-col justify-start'>
+        <div className='flex w-full flex-auto flex-col'>
+          <h2 className='mb-1 w-[100%] text-xl text-[#aaa]'>{post.title}</h2>
+          <div className='w-[100%] flex-auto text-sm text-[#777]'>{post.desc}</div>
+        </div>
+        <div className='flex w-full flex-row justify-between text-[14px] text-[#777]'>
+          <div className='flex items-center'>
+            <IconFont name='icon-user' size={16} />
+            <span className='ml-[10px]'>{post.auth}</span>
+          </div>
+          <div className='flex items-center'>
+            <IconFont name='icon-time1' size={16} />
+            <span className='ml-[10px]'>{format(parseISO(post.date), 'LLLL d, yyyy')}</span>
+          </div>
+          <div className='flex items-center'>
+            <IconFont name='icon-message-comments' color='#777' size={16} />
+            <span className='ml-[10px]'>No comments</span>
+          </div>
         </div>
       </div>
     </Link>
