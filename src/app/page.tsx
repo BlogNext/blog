@@ -1,5 +1,5 @@
-import { allDocs } from '.contentlayer/generated';
 import MdxCard from '@/components/Mdx/card';
+import { allDocs } from 'contentlayer/generated';
 import { compareDesc } from 'date-fns';
 import { Metadata } from 'next';
 export const metadata: Metadata = {

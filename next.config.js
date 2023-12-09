@@ -15,6 +15,12 @@ const nextConfig = {
     // Dangerously allow production builds to successfully complete even if
     // your project has type errors.
     ignoreBuildErrors: true
+  },
+
+  // 加入 images 區塊
+  images: {
+    // Enable modern image formats
+    formats: ['image/avif', 'image/webp']
   }
 };
 

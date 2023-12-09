@@ -1,12 +1,77 @@
 ---
-title: Sample post 2
-desc: My first post 2
+title: Sample post 1
+desc: My first post 12
 date: 2022-08-30
 type: Docs
+auth: LaughingZhu
+cover: '/images/avatar.jpg'
 ---
 
-import Image from '@components/Image';
+import { asset } from '@mdx-js/asset';
 
-# 222
+## Image
 
-<Image src='@/public/images/avatar.jpg' />
+[![Photo by Anita Chong on Unsplash](https://images.unsplash.com/photo-1644109097896-15e89806c340?q=80&w=2274&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)](https://unsplash.com/photos/aSJAalMXCvI)
+
+![avatar](<asset('/images/avatar.jpg')>)
+
+> Photo by [Anita Chong](https://unsplash.com/@jacutanita) on [Unsplash](https://unsplash.com/photos/aSJAalMXCvI)
+
+---
+
+## Links
+
+Internal link [Go to homepage](/images/avatar.jpg)
+
+External link [Go to Google](https://google.com)
+
+Anchor link [Go to Codes sestion](#codes)
+
+---
+
+## Codes
+
+We can write some `inline code`!
+
+```js:sample.js showLineNumbers
+const a = 1;
+a = 2;
+```
+
+```tsx:App.tsx showLineNumbers {5,15-17}
+import "@/styles/globals.css";
+
+import type { AppProps } from "next/app";
+import Head from "next/head";
+import { ThemeProvider } from "next-themes";
+
+import LayoutWrapper from "@/components/LayoutWrapper";
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <ThemeProvider attribute="class">
+      <Head>
+        <meta name="viewport" content="viewport-fit=cover" />
+      </Head>
+      <LayoutWrapper>
+        <Component {...pageProps} />
+      </LayoutWrapper>
+    </ThemeProvider>
+  );
+}
+
+export default MyApp;
+```
+
+### More codes
+
+```diff-js:some.js showLineNumbers {3-4}
+const a = 1;
+- a = 2;
++ a = 2;
+a = 3;
+```
+
+```shell:Command
+$ echo "Hello world!"
+```
