@@ -81,6 +81,23 @@ body {
   white-space: nowrap;
 }
 
-.mdx-detail > * {
-  width: 100%;
+.mdx-detail {
+  .rehype-code-title {
+    margin-top: 20px;
+    margin-bottom: -12px;
+    border-radius: 0.25rem 0.25rem 0 0;
+    background-color: #24292e;
+    padding: 4px 16px 8px;
+    font-family: monospace;
+    font-size: 0.875rem;
+    color: #808080;
+  }
+
+  .mdx-detail__pre {
+    border-radius: 0 0 0.25rem 0.25rem;
+  }
+
+  * {
+    width: 100%;
+  }
 }

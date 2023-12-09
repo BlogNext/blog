@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
+import rehypeCodeTitles from 'rehype-code-titles';
 import rehypePrism from 'rehype-prism-plus';
 export const Docs = defineDocumentType(() => ({
   name: 'Docs',
@@ -30,7 +31,11 @@ export default makeSource({
   contentDirPath: './src/docs',
   documentTypes: [Docs],
   mdx: {
-    // rehypeCodeTitles as any, // For adding titles to code blocks
-    rehypePlugins: [[rehypePrism as any, { ignoreMissing: true }]]
+    rehypePlugins: [
+      // rehypeCodeTitles as any, // For adding titles to code blocks
+      rehypeCodeTitles,
+      [rehypePrism as any, { ignoreMissing: true }]
+      // imageMetadata // For adding image metadata (width, height)
+    ]
   }
 });

@@ -7,7 +7,8 @@ import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import React from 'react';
-import './globals.css';
+
+import './global.css';
 const NoSSR = dynamic(() => import('../components/bg'), { ssr: false });
 const inter = Inter({ subsets: ['latin'] });
 
