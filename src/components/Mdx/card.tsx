@@ -4,7 +4,6 @@ import Link from 'next/link';
 import IconFont from '../IconFont';
 import Image from '../Image';
 export default function MdxCard(post: Docs) {
-  console.log(post.cover, '-----post');
   return (
     <Link
       key={post._id}
@@ -14,7 +13,7 @@ export default function MdxCard(post: Docs) {
       {post?.cover && <Image width={180} height={120} src={post.cover} alt={post.title} />}
       <div className='ml-[20px] flex h-full flex-auto flex-col justify-start'>
         <div className='flex w-full flex-auto flex-col'>
-          <h2 className='mb-1 w-[100%] text-xl text-[#aaa]'>{post.title}</h2>
+          <h2 className='.textOVerFlow mb-1 w-[100%] text-xl text-[#aaa]'>{post.title}</h2>
           <div className='w-[100%] flex-auto text-sm text-[#777]'>{post.desc}</div>
         </div>
         <div className='flex w-full flex-row justify-between text-[14px] text-[#777]'>

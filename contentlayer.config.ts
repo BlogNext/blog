@@ -1,5 +1,5 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
-
+import rehypePrism from 'rehype-prism-plus';
 export const Docs = defineDocumentType(() => ({
   name: 'Docs',
   filePathPattern: `**/*.mdx`,
@@ -22,8 +22,15 @@ export const Docs = defineDocumentType(() => ({
     }
   },
   computedFields: {
-    url: { type: 'string', resolve: (docs) => `/docs/${docs._raw.flattenedPath}` }
+    url: { type: 'string', resolve: (docs) => `/detail/${docs._raw.flattenedPath}` }
   }
 }));
 
-export default makeSource({ contentDirPath: './src/docs', documentTypes: [Docs] });
+export default makeSource({
+  contentDirPath: './src/docs',
+  documentTypes: [Docs],
+  mdx: {
+    // rehypeCodeTitles as any, // For adding titles to code blocks
+    rehypePlugins: [[rehypePrism as any, { ignoreMissing: true }]]
+  }
+});

@@ -25,7 +25,7 @@
       "@types/*": ["./types/*"],
       "@components/*": ["./components/*"],
       "@config/*": ["./config/*"],
-      "contentlayer/generated": ["./.contentlayer/generated"]
+      "contentlayer/generated": [".contentlayer/generated"]
     }
   },
   "include": [

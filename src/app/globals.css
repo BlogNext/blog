@@ -74,3 +74,13 @@ body {
     clip-path: ellipse(50px 50px at 0% 50%);
   }
 }
+
+.textOVerFlow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mdx-detail > * {
+  width: 100%;
+}
