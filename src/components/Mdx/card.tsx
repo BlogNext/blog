@@ -1,4 +1,4 @@
-import { Docs } from 'contentlayer/generated';
+import { Docs } from '@contentlayer';
 import { format, parseISO } from 'date-fns/esm';
 import Link from 'next/link';
 import IconFont from '../IconFont';

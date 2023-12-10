@@ -1,4 +1,4 @@
-import { allDocs } from 'contentlayer/generated';
+import { allDocs } from '@contentlayer';
 import Detail from './detail';
 export async function getStaticPaths() {
   const paths = allDocs.map((post) => ({

@@ -31,6 +31,7 @@ export const Docs = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: './src/docs',
   documentTypes: [Docs],
+  disableImportAliasWarning: true,
   mdx: {
     rehypePlugins: [
       // rehypeCodeTitles as any, // For adding titles to code blocks
