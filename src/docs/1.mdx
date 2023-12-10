@@ -1,10 +1,10 @@
 ---
 title: JavaScript基础（一）-js的执行顺序
-desc: My first post 12
+desc: 通过系列文章来沉淀一下JavaScript的基础知识
 date: 2022-08-30
 type: Docs
 auth: LaughingZhu
-cover: '/images/avatar.jpg'
+cover: http://s5fsc6345.hb-bkt.clouddn.com/image_2.png
 ---
 
 最近一直在复习js相关的内容，发现好多东西都模棱两可，正好最近在系列的看，所以顺便整理一个系列的文章来记一下学习的过程，顺便沉淀一下，这个系列中的文章大量借鉴了我最近看的一些文章，所以如有侵权问题，请及时联系我。
@@ -31,7 +31,7 @@ function showName() {
 
 然而实际执行结果却并非如此，如下图：
 
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/262184/1626313028769-9ad2742e-b5b7-4f9f-b294-6372d97e348e.png#clientId=ude111ca5-ab7a-4&from=paste&height=136&id=u55761af5&originHeight=272&originWidth=1160&originalType=binary&ratio=1&rotation=0&showTitle=false&size=45685&status=done&style=shadow&taskId=ubda3656b-2501-4cfc-bb5e-4bdc4467b2e&title=&width=580)
+![image.png](http://s5fsc6345.hb-bkt.clouddn.com/image.png)
 
 第1行输出”函数showName被执行“，第2行输出”undefined“，这和前面的顺序执行有点不一样。
 
@@ -47,7 +47,7 @@ function showName() {
 
 执行这段代码是，JavaScript引擎就会报错，结果如下：
 
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/262184/1626313172315-2fe849dc-3fc9-4d75-a12e-eddd5fa56a73.png#clientId=ude111ca5-ab7a-4&from=paste&height=180&id=u71d166d6&originHeight=360&originWidth=1286&originalType=binary&ratio=1&rotation=0&showTitle=false&size=50077&status=done&style=shadow&taskId=uec2aa035-8a3a-4097-a505-049aed3c5cb&title=&width=643)
+![image.png](http://s5fsc6345.hb-bkt.clouddn.com/image_1.png)
 
 从上面两端代码执行结果来看，我们可以得出如下三个结论：
 
@@ -81,7 +81,7 @@ myname = '极客时间'; //赋值部分
 
 如下图所示
 
-![a58f1-46bl8.jpg](https://cdn.nlark.com/yuque/0/2021/jpeg/262184/1626315830496-e1b739e7-ef23-4573-af40-16fcde028f4f.jpeg#clientId=ude111ca5-ab7a-4&from=ui&id=u20a18e87&originHeight=439&originWidth=1142&originalType=binary&ratio=1&rotation=0&showTitle=false&size=41145&status=done&style=shadow&taskId=uf3d6b086-71b6-48f7-841b-a67a6a55261&title=)
+![a58f1-46bl8.jpg](http://s5fsc6345.hb-bkt.clouddn.com/a58f1-46bl8.jpg)
 上面是变量的申明和赋值，接下来我们看一下函数的声明和赋值。
 
 ```javascript
@@ -96,7 +96,7 @@ var bar = function () {
 
 第一个函数 foo 是一个完整的函数声明，也就是说没有涉及到赋值操作；第二个函数是先声明变量 bar，再把function(){console.log('bar')}赋值给 bar。为了直观理解，你可以参考下图：
 
-![ajmbj-vu89p.jpg](https://cdn.nlark.com/yuque/0/2021/jpeg/262184/1626315992990-63cece36-8d36-4dbe-a5df-6b74143a8957.jpeg#clientId=ude111ca5-ab7a-4&from=ui&id=u1aca5d8a&originHeight=648&originWidth=1142&originalType=binary&ratio=1&rotation=0&showTitle=false&size=71375&status=done&style=shadow&taskId=u5a5a32b0-354c-4251-a4dc-2bd2561e503&title=)
+![ajmbj-vu89p.jpg](http://s5fsc6345.hb-bkt.clouddn.com/ajmbj-vu89p.jpg)
 
 理解了声明和赋值后我们就可以聊聊变量提升了。
 
@@ -127,7 +127,7 @@ myname = '极客时间';
 
 模拟变量提升效果图：
 
-![agthl-1aumm.jpg](https://cdn.nlark.com/yuque/0/2021/jpeg/262184/1626316761791-750bbcfb-3d33-406b-8abe-d034c68857cb.jpeg#clientId=ude111ca5-ab7a-4&from=ui&id=ua40db9bf&originHeight=528&originWidth=1142&originalType=binary&ratio=1&rotation=0&showTitle=false&size=84794&status=done&style=shadow&taskId=u8d58540c-fe14-4d98-8512-c7ac86f1481&title=)
+![agthl-1aumm.jpg](http://s5fsc6345.hb-bkt.clouddn.com/agthl-1aumm.jpg)
 
 从图中可以看出，我们对代码做了两处调整：
 
@@ -142,7 +142,7 @@ myname = '极客时间';
 
 从概念的字面意义上来看，“变量提升”意味着变量和函数的声明会在物理层面移动到代码的最前面，正如我们所模拟的那样。但，这并不准确。**实际上变量和函数声明在代码里的位置是不会改变的，而且是在编译阶段被 JavaScript 引擎放入内存中**。对，你没听错，一段 JavaScript 代码在执行之前需要被 JavaScript 引擎编译，**编译**完成之后，才会进入**执行阶段**。大致流程你可以参考下图：
 
-![anav1-70yc4.jpg](https://cdn.nlark.com/yuque/0/2021/jpeg/262184/1626317174370-7a735438-0881-4f14-b6b5-3ac1ed8862b2.jpeg#clientId=ude111ca5-ab7a-4&from=ui&id=ub7d6973c&originHeight=203&originWidth=1142&originalType=binary&ratio=1&rotation=0&showTitle=false&size=36625&status=done&style=shadow&taskId=ub7700bad-b912-4206-bd7e-fa33603a2a6&title=)
+![anav1-70yc4.jpg](http://s5fsc6345.hb-bkt.clouddn.com/anav1-70yc4.jpg)
 
 ### 1.编译阶段
 
@@ -169,7 +169,7 @@ myname = '极客时间';
 
 下面我们就可以把 JavaScript 的执行流程细化，如下图所示：
 
-![adqwm-wwf8y.jpg](https://cdn.nlark.com/yuque/0/2021/jpeg/262184/1626317297266-fde7fe5b-67bd-4783-88c6-2203f78401d0.jpeg#clientId=ude111ca5-ab7a-4&from=ui&id=u29562448&originHeight=634&originWidth=1142&originalType=binary&ratio=1&rotation=0&showTitle=false&size=102209&status=done&style=shadow&taskId=uc0be8b52-5fb4-46cb-9649-ba45fec0375&title=)
+![adqwm-wwf8y.jpg](http://s5fsc6345.hb-bkt.clouddn.com/adqwm-wwf8y.jpg)
 
 从上图可以看出，输入一段代码，经过编译后，会生成两部分内容：**执行上下文（Execution context）**和**可执行代码**。
 

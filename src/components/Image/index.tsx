@@ -12,12 +12,11 @@ export default function CustomImage({ src, height, width, base64, alt, ...otherP
   }
   return (
     <Image
-      layout='responsive'
+      // layout='responsive'
       src={src}
       alt={alt}
       height={height}
       width={width}
-      sizes='(min-width: 40em) 40em, 100vw'
       placeholder={base64 ? 'blur' : 'empty'}
       blurDataURL={base64}
       {...otherProps}

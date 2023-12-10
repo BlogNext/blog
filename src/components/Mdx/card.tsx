@@ -2,7 +2,6 @@ import { Docs } from 'contentlayer/generated';
 import { format, parseISO } from 'date-fns/esm';
 import Link from 'next/link';
 import IconFont from '../IconFont';
-import Image from '../Image';
 export default function MdxCard(post: Docs) {
   return (
     <Link
@@ -10,7 +9,9 @@ export default function MdxCard(post: Docs) {
       href={post.url}
       className='mb-[20px] flex w-full flex-row justify-start rounded-[6px] bg-[#212121] p-[30px] transition-all'
     >
-      {post?.cover && <Image width={180} height={120} src={post.cover} alt={post.title} />}
+      {post?.cover && (
+        <img className='h-[120px] w-[180px] object-contain' src={post.cover} alt={post.title} />
+      )}
       <div className='ml-[20px] flex h-full flex-auto flex-col justify-start'>
         <div className='flex w-full flex-auto flex-col'>
           <h2 className='.textOVerFlow mb-1 w-[100%] text-xl text-[#aaa]'>{post.title}</h2>
