@@ -9,6 +9,8 @@ export default function Detail({ doc }: { doc: Docs }) {
 
   return (
     <div className='mdx-detail flex w-full flex-col items-center justify-start p-[20px]'>
+      <h2 className='w-full text-left text-[#aaa]'>{doc?.desc}</h2>
+
       <MDXContent components={mdxComponents} />
     </div>
   );

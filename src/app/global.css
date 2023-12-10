@@ -95,11 +95,22 @@ body {
   p {
     margin-top: 20px;
   }
+
   .mdx-detail__pre {
     border-radius: 0 0 0.25rem 0.25rem;
   }
 
   > * {
     width: 100%;
+  }
+}
+
+.mdx-detail p:first-of-type {
+  &:first-letter {
+    font-size: 2em;
+    float: left;
+    padding-right: 5px;
+    text-transform: uppercase;
+    color: #55595d;
   }
 }
