@@ -1,8 +1,8 @@
+import '@/common/styles/prism-dracula.css';
+import '@/common/styles/prism-plus.css';
 import mdxComponents from '@/components/Mdx/mdxComponents';
 import { Docs } from '@contentlayer';
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import '../../../common/prism-dracula.css';
-import '../../../common/prism-plus.css';
 
 export default function Detail({ doc }: { doc: Docs }) {
   const MDXContent = useMDXComponent(doc.body.code);
