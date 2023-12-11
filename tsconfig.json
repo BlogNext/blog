@@ -26,7 +26,8 @@
       "@components/*": ["./components/*"],
       "@config/*": ["./config/*"],
       "@contentlayer": [".contentlayer/generated"]
-    }
+    },
+    "forceConsistentCasingInFileNames": true
   },
   "include": [
     "next-env.d.ts",

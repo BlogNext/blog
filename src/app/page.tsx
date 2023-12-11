@@ -2,13 +2,7 @@ import MdxCard from '@/components/Mdx/card';
 import config from '@/config';
 import { allDocs } from '@contentlayer';
 import { compareDesc } from 'date-fns';
-import { Metadata } from 'next';
 import { ArticleJsonLd } from 'next-seo';
-export const metadata: Metadata = {
-  title: 'LaughingZhu的技术文章记录',
-  description: "LaughingZhu's Blog, 技术、生活、兴趣博客",
-  keywords: 'LaughingZhu Blog LaughingZhu'
-};
 
 export default function Home() {
   const posts = allDocs.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));

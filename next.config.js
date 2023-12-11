@@ -3,7 +3,7 @@ const { withContentlayer } = require('next-contentlayer');
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  compress: true,
+  // compress: true,
   reactStrictMode: true,
   swcMinify: true,
   webpack: (config) => {

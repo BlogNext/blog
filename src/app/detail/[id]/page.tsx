@@ -1,25 +1,15 @@
+import Detail from '@/components/Detail';
 import config from '@/config';
 import { allDocs } from '@contentlayer';
 import { ArticleJsonLd, NextSeo } from 'next-seo';
-import Detail from './detail';
 export function getStaticPaths() {
   const paths = allDocs.map((post) => ({
     params: { id: post._raw.flattenedPath }
   }));
+
   return { paths, fallback: false };
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
-  const doc = allDocs.find((post) => post._raw.flattenedPath === params.id);
-  return {
-    title: doc?.title,
-    titleShort: "LaughingZhu's Blog",
-    description: doc?.desc,
-    author: doc?.auth,
-    logoPath: '/favicon.ico',
-    datePublished: doc?.date
-  };
-}
 export default async function DetailPage({ params }: { params: { id: string } }) {
   const doc = allDocs.find((post) => post._raw.flattenedPath === params.id);
   const url = config.host + doc?.url;
