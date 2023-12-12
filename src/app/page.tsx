@@ -1,14 +1,12 @@
 import MdxCard from '@/components/Mdx/card';
-import config from '@/config';
 import { allDocs } from '@contentlayer';
 import { compareDesc } from 'date-fns';
-import { ArticleJsonLd } from 'next-seo';
 
 export default function Home() {
   const posts = allDocs.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
   return (
     <>
-      <ArticleJsonLd
+      {/* <ArticleJsonLd
         type='Blog'
         url={config.host}
         title={"LaughingZhu's Blog"}
@@ -18,7 +16,7 @@ export default function Home() {
         datePublished={'2023-12-12'}
         authorName={'LaughingZhu'}
         description={"LaughingZhu's Blog"}
-      />
+      /> */}
       <main className='flex flex-auto flex-col items-center justify-between overflow-auto'>
         <div className='flex w-full flex-none flex-col justify-start border-y-rose-700 align-top'>
           <div className='relative flex w-full flex-col items-center justify-center bg-[#1D1F20] p-[20px] text-[30px] leading-normal text-[#aaa]'>

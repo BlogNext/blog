@@ -28,7 +28,8 @@ const nextConfig = {
   images: {
     // Enable modern image formats
     formats: ['image/avif', 'image/webp']
-  }
+  },
+  output: 'export'
 };
 
 module.exports = withContentlayer(nextConfig);
