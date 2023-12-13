@@ -14,6 +14,7 @@ export const generateMetadata = async ({ params }: { params: { id: string } }) =
   const url = config.host + doc?.url;
 
   return {
+    metadataBase: new URL('https://blog.laughingzhu.cn'),
     title: doc?.title,
     description: doc?.desc,
     canonical: url,

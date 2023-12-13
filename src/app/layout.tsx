@@ -16,6 +16,7 @@ export const generateMetadata = async () => {
     title: "LaughingZhu's Blog",
     description: "LaughingZhu's Blog",
     canonical: config.host,
+    metadataBase: new URL('https://blog.laughingzhu.cn'),
     openGraph: {
       title: "LaughingZhu's Blog",
       description: "LaughingZhu's Blog",
