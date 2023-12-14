@@ -28,7 +28,7 @@
     "react-dom": "^18",
     "rehype-code-titles": "^1.2.0",
     "rehype-prism-plus": "^1.6.3",
-    "sharp": "^0.33.0",
+    "sharp": "^0.32.6",
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
