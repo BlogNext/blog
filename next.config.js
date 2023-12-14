@@ -27,7 +27,13 @@ const nextConfig = {
   // 加入 images 區塊
   images: {
     // Enable modern image formats
-    formats: ['image/avif', 'image/webp']
+    formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.laughingzhu.cn'
+      }
+    ]
   }
   // output: 'export'
 };

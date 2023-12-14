@@ -4,7 +4,7 @@ desc: 通过系列文章来沉淀一下JavaScript的基础知识
 date: 2022-08-30
 type: Docs
 auth: LaughingZhu
-cover: http://s5fsc6345.hb-bkt.clouddn.com/image_2.png
+cover: https://cdn.laughingzhu.cn/image_2.png
 ---
 
 最近一直在复习js相关的内容，发现好多东西都模棱两可，正好最近在系列的看，所以顺便整理一个系列的文章来记一下学习的过程，顺便沉淀一下，这个系列中的文章大量借鉴了我最近看的一些文章，所以如有侵权问题，请及时联系我。
@@ -31,7 +31,7 @@ function showName() {
 
 然而实际执行结果却并非如此，如下图：
 
-![image.png](http://s5fsc6345.hb-bkt.clouddn.com/image.png)
+![image.png](https://cdn.laughingzhu.cn/image.png)
 
 第1行输出”函数showName被执行“，第2行输出”undefined“，这和前面的顺序执行有点不一样。
 
@@ -47,7 +47,7 @@ function showName() {
 
 执行这段代码是，JavaScript引擎就会报错，结果如下：
 
-![image.png](http://s5fsc6345.hb-bkt.clouddn.com/image_1.png)
+![image.png](https://cdn.laughingzhu.cn/image_1.png)
 
 从上面两端代码执行结果来看，我们可以得出如下三个结论：
 
@@ -81,7 +81,7 @@ myname = '极客时间'; //赋值部分
 
 如下图所示
 
-![a58f1-46bl8.jpg](http://s5fsc6345.hb-bkt.clouddn.com/a58f1-46bl8.jpg)
+![a58f1-46bl8.jpg](https://cdn.laughingzhu.cn/a58f1-46bl8.jpg)
 上面是变量的申明和赋值，接下来我们看一下函数的声明和赋值。
 
 ```javascript
@@ -98,7 +98,7 @@ function foo() {
 {/* function(){console.log('bar')} */}
 赋值给 bar。为了直观理解，你可以参考下图：
 
-![ajmbj-vu89p.jpg](http://s5fsc6345.hb-bkt.clouddn.com/ajmbj-vu89p.jpg)
+![ajmbj-vu89p.jpg](https://cdn.laughingzhu.cn/ajmbj-vu89p.jpg)
 
 理解了声明和赋值后我们就可以聊聊变量提升了。
 
@@ -129,7 +129,7 @@ myname = '极客时间';
 
 模拟变量提升效果图：
 
-![agthl-1aumm.jpg](http://s5fsc6345.hb-bkt.clouddn.com/agthl-1aumm.jpg)
+![agthl-1aumm.jpg](https://cdn.laughingzhu.cn/agthl-1aumm.jpg)
 
 从图中可以看出，我们对代码做了两处调整：
 
@@ -144,7 +144,7 @@ myname = '极客时间';
 
 从概念的字面意义上来看，“变量提升”意味着变量和函数的声明会在物理层面移动到代码的最前面，正如我们所模拟的那样。但，这并不准确。**实际上变量和函数声明在代码里的位置是不会改变的，而且是在编译阶段被 JavaScript 引擎放入内存中**。对，你没听错，一段 JavaScript 代码在执行之前需要被 JavaScript 引擎编译，**编译**完成之后，才会进入**执行阶段**。大致流程你可以参考下图：
 
-![anav1-70yc4.jpg](http://s5fsc6345.hb-bkt.clouddn.com/anav1-70yc4.jpg)
+![anav1-70yc4.jpg](https://cdn.laughingzhu.cn/anav1-70yc4.jpg)
 
 ### 1.编译阶段
 
@@ -171,7 +171,7 @@ myname = '极客时间';
 
 下面我们就可以把 JavaScript 的执行流程细化，如下图所示：
 
-![adqwm-wwf8y.jpg](http://s5fsc6345.hb-bkt.clouddn.com/adqwm-wwf8y.jpg)
+![adqwm-wwf8y.jpg](https://cdn.laughingzhu.cn/adqwm-wwf8y.jpg)
 
 从上图可以看出，输入一段代码，经过编译后，会生成两部分内容：**执行上下文（Execution context）**和**可执行代码**。
 
