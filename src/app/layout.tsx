@@ -24,7 +24,12 @@ export const generateMetadata = async () => {
       description: "LaughingZhu's Blog",
       url: config.host,
       site_name: "LaughingZhu's Blog",
-      type: 'website'
+      type: 'website',
+      images: [
+        {
+          url: '/favicon.ico'
+        }
+      ]
     },
     additionalMetaTags: [
       {
@@ -59,15 +64,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       >
         <Script src='//at.alicdn.com/t/c/font_2023298_sq9wgxz8l8g.js' />
         <NoSSR />
-        {/* <TanstackProvider> */}
         <Header />
         <div className='z-10 mt-[1px] flex w-full flex-auto flex-row overflow-hidden'>
           <Aside />
-          {children}
+          <main className='flex flex-auto flex-col items-center justify-between overflow-auto'>
+            {children}
+          </main>
           <Sliderbar />
           <Analytics />
         </div>
-        {/* </TanstackProvider> */}
       </body>
     </html>
   );
