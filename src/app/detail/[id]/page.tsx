@@ -12,7 +12,6 @@ export function getStaticPaths() {
 export const generateMetadata = async ({ params }: { params: { id: string } }) => {
   const doc = allDocs.find((post) => post._raw.flattenedPath === params.id);
   const url = config.host + doc?.url;
-
   return {
     metadataBase: new URL('https://blog.laughingzhu.cn'),
     title: doc?.title,
@@ -35,7 +34,7 @@ export const generateMetadata = async ({ params }: { params: { id: string } }) =
 
 export default async function DetailPage({ params }: { params: { id: string } }) {
   const doc = allDocs.find((post) => post._raw.flattenedPath === params.id);
-  const url = config.host + doc?.url;
+  // const url = config.host + doc?.url;
   return (
     <>
       {/* <ArticleJsonLd

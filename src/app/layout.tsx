@@ -3,6 +3,7 @@ import Aside from '@/components/Aside';
 import Header from '@/components/Header';
 import Sliderbar from '@/components/Sliderbar';
 import config from '@/config';
+import generateRSS from '@/lib/generateRSS';
 import { Analytics } from '@vercel/analytics/react';
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
@@ -12,6 +13,7 @@ import React from 'react';
 const NoSSR = dynamic(() => import('../components/bg'), { ssr: false });
 const inter = Inter({ subsets: ['latin'] });
 export const generateMetadata = async () => {
+  generateRSS();
   return {
     title: "LaughingZhu's Blog",
     description: "LaughingZhu's Blog",
@@ -34,6 +36,16 @@ export const generateMetadata = async () => {
       {
         rel: 'icon',
         href: '/favicon.ico'
+      },
+      {
+        rel: 'alternate',
+        type: 'application/rss+xml',
+        href: '/feed.xml'
+      },
+      {
+        rel: 'alternate',
+        type: 'application/atom+xml',
+        href: '/atom.xml'
       }
     ]
   };
