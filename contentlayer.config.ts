@@ -8,7 +8,6 @@ export const Docs = defineDocumentType(() => ({
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
-
     date: { type: 'date', required: true },
     desc: {
       type: 'string',
@@ -21,6 +20,10 @@ export const Docs = defineDocumentType(() => ({
     cover: {
       type: 'string',
       required: false
+    },
+    category: {
+      type: 'string',
+      required: true
     }
   },
   computedFields: {
@@ -29,7 +32,7 @@ export const Docs = defineDocumentType(() => ({
 }));
 
 export default makeSource({
-  contentDirPath: './src/docs',
+  contentDirPath: './docs',
   documentTypes: [Docs],
   disableImportAliasWarning: true,
   mdx: {
