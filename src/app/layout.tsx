@@ -6,12 +6,11 @@ import config from '@/config';
 import generateRSS from '@/lib/generateRSS';
 import { Analytics } from '@vercel/analytics/react';
 import dynamic from 'next/dynamic';
-import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import React from 'react';
 
 const NoSSR = dynamic(() => import('../components/bg'), { ssr: false });
-const inter = Inter({ subsets: ['latin'] });
+// const inter = Inter({ subsets: ['latin'] });
 export const generateMetadata = async () => {
   generateRSS();
   return {
@@ -60,14 +59,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='en'>
       <body
-        className={`${inter.className} relative flex h-screen flex-col items-center justify-start md:w-full lg:px-24 xl:px-32 2xl:px-80`}
+        className={`relative flex h-screen flex-col items-center justify-start md:w-full lg:px-0 xl:px-10 2xl:px-60`}
       >
         <Script src='//at.alicdn.com/t/c/font_2023298_sq9wgxz8l8g.js' />
         <NoSSR />
         <Header />
         <div className='z-10 mt-[1px] flex w-full flex-auto flex-row overflow-hidden'>
           <Aside />
-          <main className='flex flex-auto flex-col items-center justify-between overflow-auto'>
+          <main className='flex min-w-[730px] flex-auto flex-col items-center justify-between overflow-auto overflow-hidden'>
             {children}
           </main>
           <Sliderbar />
