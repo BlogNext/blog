@@ -109,7 +109,7 @@ body {
   }
 }
 
-.mdx-detail p:first-of-type {
+.mdx-detail > p:first-of-type {
   &:first-letter {
     font-size: 2em;
     float: left;

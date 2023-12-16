@@ -7,7 +7,7 @@ export default function MdxCard(post: Docs) {
     <Link
       key={post._id}
       href={post.url}
-      className='mb-[20px] flex w-full flex-row justify-start overflow-hidden  rounded-[6px] bg-[#212121] p-[30px] transition-all'
+      className='mb-[20px] flex w-full flex-none flex-row justify-start overflow-hidden  rounded-[6px] bg-[#212121] p-[30px] transition-all'
     >
       {post?.cover && (
         <img className='h-[120px] w-[180px] object-contain' src={post.cover} alt={post.title} />

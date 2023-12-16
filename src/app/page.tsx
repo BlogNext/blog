@@ -28,7 +28,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className='flex w-full flex-auto flex-col items-center justify-start p-[20px]'>
+      <div className='flex w-full flex-auto flex-col items-center justify-start overflow-y-auto p-[20px] '>
         {posts.map((post, idx) => (
           <MdxCard key={idx} {...post} />
         ))}

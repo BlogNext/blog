@@ -46,7 +46,7 @@ export default async function DetailPage({ params }: { params: { id: string } })
         authorName={doc?.auth || ''}
         description={doc?.desc || ''}
       /> */}
-      <div className='w-full flex-auto p-[10px]'>
+      <div className='w-full flex-auto overflow-y-auto p-[10px]'>
         <div className='flex h-full flex-col items-center justify-start overflow-auto rounded-[6px] bg-[#212121] p-[20px]'>
           <h1 className='mb-1 w-[100%] text-center text-2xl text-[#aaa]'>{doc?.title}</h1>
 
