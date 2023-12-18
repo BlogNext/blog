@@ -1,5 +1,6 @@
 import '@/common/styles/global.css';
 import Aside from '@/components/Aside';
+import CommandPalette from '@/components/CommandPalette';
 import Header from '@/components/Header';
 import Sliderbar from '@/components/Sliderbar';
 import config from '@/config';
@@ -57,22 +58,25 @@ export const generateMetadata = async () => {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='en'>
-      <body
-        className={`relative flex h-screen flex-col items-center justify-start md:w-full lg:px-0 xl:px-10 2xl:px-60`}
-      >
-        <Script src='//at.alicdn.com/t/c/font_2023298_sq9wgxz8l8g.js' />
-        <NoSSR />
-        <Header />
-        <div className='z-10 mt-[1px] flex w-full flex-auto flex-row overflow-hidden'>
-          <Aside />
-          <main className='flex min-w-[730px] flex-auto flex-col items-center justify-between overflow-auto overflow-hidden'>
-            {children}
-          </main>
-          <Sliderbar />
-          <Analytics />
-        </div>
-      </body>
-    </html>
+    <CommandPalette>
+      <html lang='en' suppressHydrationWarning={true}>
+        <body
+          className={`relative flex h-screen flex-col items-center justify-start md:w-full lg:px-0 xl:px-10 2xl:px-60`}
+        >
+          <Script src='//at.alicdn.com/t/c/font_2023298_dvf1f5axzjj.js' />
+
+          <NoSSR />
+          <Header />
+          <div className='z-10 mt-[1px] flex w-full flex-auto flex-row overflow-hidden'>
+            <Aside />
+            <main className='flex min-w-[730px] flex-auto flex-col items-center justify-between overflow-auto overflow-hidden'>
+              {children}
+            </main>
+            <Sliderbar />
+            <Analytics />
+          </div>
+        </body>
+      </html>
+    </CommandPalette>
   );
 }

@@ -31,7 +31,7 @@ export default function Aside() {
         {allCategory.map((item) => (
           <Link
             key={item.icon}
-            href={`?category=${item.label}`}
+            href={`/?category=${item.label}`}
             className='flex w-full flex-none cursor-pointer flex-row items-center justify-start px-[25px] py-[12px] hover:bg-[rgba(30,144,255,0.2)]'
             style={{
               backgroundColor: checkSelected(item.label) ? 'rgba(30,144,255,0.2)' : 'transparent'
