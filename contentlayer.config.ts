@@ -24,6 +24,10 @@ export const Docs = defineDocumentType(() => ({
     category: {
       type: 'string',
       required: true
+    },
+    icon: {
+      type: 'string',
+      required: true
     }
   },
   computedFields: {

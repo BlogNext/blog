@@ -1,9 +1,20 @@
+'use client';
 import MdxCard from '@/components/Mdx/card';
-import { allDocs } from '@contentlayer';
-import { compareDesc } from 'date-fns';
+import { useGetDocs } from '@/hooks/use-get-docs';
+import { useSearchParams } from 'next/navigation';
+import { useMemo } from 'react';
 
 export default function Home() {
-  const posts = allDocs.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
+  const category = useSearchParams().get('category') || '';
+  const { docMap, docs: allDocs } = useGetDocs();
+  const docs = useMemo(() => {
+    if (docMap.has(category)) {
+      return docMap.get(category);
+    } else {
+      return allDocs;
+    }
+  }, [allDocs, category, docMap]);
+
   return (
     <>
       {/* <ArticleJsonLd
@@ -29,9 +40,7 @@ export default function Home() {
         </div>
       </div>
       <div className='flex w-full flex-auto flex-col items-center justify-start overflow-y-auto p-[20px] '>
-        {posts.map((post, idx) => (
-          <MdxCard key={idx} {...post} />
-        ))}
+        {docs?.map((post, idx) => <MdxCard key={idx} {...post} />)}
       </div>
       <div className='w-full flex-none text-center'>
         <span>Copyright © 2020-2021 LaughingZhu 版权所有 </span>

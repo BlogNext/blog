@@ -58,6 +58,9 @@ dependencies:
     version: 5.0.0
 
 devDependencies:
+  '@types/date-fns':
+    specifier: ^2.6.0
+    version: 2.6.0
   '@types/lodash-es':
     specifier: ^4.17.12
     version: 4.17.12
@@ -1404,6 +1407,17 @@ packages:
     dependencies:
       '@types/estree': 1.0.5
     dev: false
+
+  /@types/date-fns@2.6.0:
+    resolution:
+      {
+        integrity: sha512-9DSw2ZRzV0Tmpa6PHHJbMcZn79HHus+BBBohcOaDzkK/G3zMjDUDYjJIWBFLbkh+1+/IOS0A59BpQfdr37hASg==,
+        tarball: https://registry.npmmirror.com/@types/date-fns/-/date-fns-2.6.0.tgz
+      }
+    deprecated: This is a stub types definition for date-fns (https://github.com/date-fns/date-fns). date-fns provides its own type definitions, so you don't need @types/date-fns installed!
+    dependencies:
+      date-fns: 2.30.0
+    dev: true
 
   /@types/debug@4.1.12:
     resolution:
