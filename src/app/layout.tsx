@@ -52,7 +52,15 @@ export const generateMetadata = async () => {
         type: 'application/atom+xml',
         href: '/atom.xml'
       }
-    ]
+    ],
+    googleBot: {
+      index: true,
+      follow: false,
+      noimageindex: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1
+    }
   };
 };
 

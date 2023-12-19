@@ -28,6 +28,14 @@ export const generateMetadata = async ({ params }: { params: { id: string } }) =
           url: doc?.cover || ''
         }
       ]
+    },
+    googleBot: {
+      index: true,
+      follow: false,
+      noimageindex: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1
     }
   };
 };
