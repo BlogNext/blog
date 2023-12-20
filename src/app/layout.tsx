@@ -68,6 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <CommandPalette>
       <html lang='en' suppressHydrationWarning={true}>
+        <meta name='baidu-site-verification' content='codeva-PyCt5VeDRf' />
         <body
           className={`relative flex h-screen flex-col items-center justify-start md:w-full lg:px-0 xl:px-10 2xl:px-60`}
         >
