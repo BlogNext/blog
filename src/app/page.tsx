@@ -42,7 +42,7 @@ export default function Home() {
       <div className='flex w-full flex-auto flex-col items-center justify-start overflow-y-auto p-[20px] '>
         {docs?.map((post, idx) => <MdxCard key={idx} {...post} />)}
       </div>
-      <div className='w-full flex-none text-center'>
+      <div className='w-full flex-none py-[10px] text-center'>
         <span>Copyright © 2020-2021 LaughingZhu 版权所有 </span>
         <a href='https://beian.miit.gov.cn/' target='_blank'>
           京ICP备2020039821号-1

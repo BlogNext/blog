@@ -70,7 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <html lang='en' suppressHydrationWarning={true}>
         <meta name='baidu-site-verification' content='codeva-PyCt5VeDRf' />
         <body
-          className={`relative flex h-screen flex-col items-center justify-start md:w-full lg:px-0 xl:px-10 2xl:px-60`}
+          className={`relative flex h-screen flex-col items-center justify-start md:w-full lg:px-0 xl:px-40 2xl:px-60`}
         >
           <Script src='//at.alicdn.com/t/c/font_2023298_dvf1f5axzjj.js' />
 
