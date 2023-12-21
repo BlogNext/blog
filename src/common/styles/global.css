@@ -117,10 +117,11 @@ body {
 }
 
 .mdx-detail > p:first-of-type {
-  &:first-letter {
-    font-size: 2em;
+  &::first-letter {
+    initial-letter: 3 2;
+    font-weight: 800;
+    padding-right: 1rem;
     float: left;
-    padding-right: 5px;
     text-transform: uppercase;
     color: #7db0e3;
   }
