@@ -40,20 +40,11 @@ export const generateMetadata = async ({ params }: { params: { id: string } }) =
   };
 };
 
-export default async function DetailPage({ params }: { params: { id: string } }) {
+export default function DetailPage({ params }: { params: { id: string } }) {
   const doc = allDocs.find((post) => post._raw.flattenedPath === params.id);
-  // const url = config.host + doc?.url;
+
   return (
     <>
-      {/* <ArticleJsonLd
-        type='Blog'
-        url={url}
-        title={doc?.title || ''}
-        images={[doc?.cover || '']}
-        datePublished={doc?.date || ''}
-        authorName={doc?.auth || ''}
-        description={doc?.desc || ''}
-      /> */}
       <div className='w-full flex-auto overflow-y-auto p-[10px]'>
         <div className='flex h-full flex-col items-center justify-start overflow-auto rounded-[6px] bg-[#212121] p-[20px]'>
           <h1 className='mb-1 w-[100%] text-center text-2xl text-[#aaa]'>{doc?.title}</h1>

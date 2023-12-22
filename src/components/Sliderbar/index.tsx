@@ -2,7 +2,7 @@
 import { useGetDocs } from '@/hooks/use-get-docs';
 import { MEUN_TYPE } from '@/type';
 import { differenceInCalendarDays, format, parseISO } from 'date-fns/esm';
-import { useCallback, useMemo, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import IconFont from '../IconFont';
 
 const INFO_MENU: MEUN_TYPE[] = [
@@ -45,7 +45,7 @@ const TOP_MENU = [
   }
 ];
 
-export default function Sliderbar() {
+const Sliderbar = () => {
   const [tabIndex, setTabIndex] = useState(0);
   const { docs } = useGetDocs();
   const onHandleTab = (index: number) => {
@@ -123,4 +123,6 @@ export default function Sliderbar() {
       </div>
     </div>
   );
-}
+};
+
+export default memo(Sliderbar);
