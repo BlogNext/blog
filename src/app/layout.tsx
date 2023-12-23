@@ -69,20 +69,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <CommandPalette>
       <html lang='en' suppressHydrationWarning={true}>
         <meta name='baidu-site-verification' content='codeva-PyCt5VeDRf' />
-        <body
-          className={`relative flex h-screen flex-col items-center justify-start md:w-full lg:px-0 xl:px-40 2xl:px-60`}
-        >
+        <body className={`relative flex h-screen flex-col items-center justify-start`}>
           <Script src='//at.alicdn.com/t/c/font_2023298_dvf1f5axzjj.js' />
-
-          <NoSSR />
-          <Header />
-          <div className='z-10 mt-[1px] flex w-full flex-auto flex-row overflow-hidden'>
-            <Aside />
-            <main className='flex min-w-[730px] flex-auto flex-col items-center justify-between overflow-auto overflow-hidden'>
-              {children}
-            </main>
-            <Sliderbar />
-            <Analytics />
+          <div className='flex h-full w-[1200px]  flex-col items-center justify-start'>
+            <NoSSR />
+            <Header />
+            <div className='z-10 mt-[1px] flex w-full flex-auto flex-row overflow-hidden'>
+              <Aside />
+              <main className='flex min-w-[730px] flex-auto flex-col items-center justify-between overflow-auto overflow-hidden'>
+                {children}
+              </main>
+              <Sliderbar />
+              <Analytics />
+            </div>
           </div>
         </body>
       </html>
