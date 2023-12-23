@@ -1,6 +1,8 @@
 import Detail from '@/components/Detail';
 import config from '@/config';
 import { allDocs } from '@contentlayer';
+import dynamic from 'next/dynamic';
+const Comment = dynamic(() => import('@/components/Comment'), { ssr: false });
 export function getStaticPaths() {
   const paths = allDocs.map((post) => ({
     params: { id: post._raw.flattenedPath }
@@ -50,6 +52,7 @@ export default function DetailPage({ params }: { params: { id: string } }) {
           <h1 className='mb-1 w-[100%] text-center text-2xl text-[#aaa]'>{doc?.title}</h1>
 
           {doc && <Detail doc={doc} />}
+          <Comment />
         </div>
       </div>
     </>
