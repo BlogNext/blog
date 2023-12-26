@@ -20,8 +20,17 @@ const config: Config = {
           '0%': { scale: '1', transform: 'rotate(0deg)' },
           '100%': { scale: '1.2', transform: 'rotate(360deg)' }
         }
+      },
+      lineClamp: {
+        7: '7',
+        8: '8',
+        9: '9',
+        10: '10'
       }
     }
+  },
+  variants: {
+    lineClamp: ['responsive', 'hover']
   },
   plugins: []
 };

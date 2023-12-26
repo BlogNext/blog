@@ -1,27 +1,26 @@
 'use client';
-import { useMemo, useState } from 'react';
+import { useGetDocs } from '@/hooks/use-get-docs';
+import { MEUN_TYPE } from '@/type';
+import { differenceInCalendarDays, format, parseISO } from 'date-fns/esm';
+import { memo, useCallback, useMemo, useState } from 'react';
 import IconFont from '../IconFont';
 
-const INFO_MENU = [
+const INFO_MENU: MEUN_TYPE[] = [
   {
     label: 'Posts Num',
-    icon: 'icon-tongjifenxi',
-    string: 'blog_total'
+    icon: 'icon-tongjifenxi'
   },
   {
     label: 'Comments Num',
-    icon: 'icon-shouye1',
-    string: ''
+    icon: 'icon-shouye1'
   },
   {
     label: 'Operating Days',
-    icon: 'icon-shijian',
-    string: 'diff_time'
+    icon: 'icon-shijian'
   },
   {
-    label: 'Last activity',
-    icon: 'icon-xiansuoguanli',
-    string: 'last_create_at'
+    label: 'Last Activity',
+    icon: 'icon-xiansuoguanli'
   }
 ];
 
@@ -46,9 +45,9 @@ const TOP_MENU = [
   }
 ];
 
-export default function Sliderbar() {
+const Sliderbar = () => {
   const [tabIndex, setTabIndex] = useState(0);
-
+  const { docs } = useGetDocs();
   const onHandleTab = (index: number) => {
     if (index === tabIndex) return;
     setTabIndex(index);
@@ -56,8 +55,26 @@ export default function Sliderbar() {
 
   const computeTransX = useMemo(() => tabIndex * 100 * 2 + 100 / 3 + 100 / 3 / 2, [tabIndex]);
 
+  const getContent = useCallback(
+    (type: string) => {
+      switch (type) {
+        case 'Posts Num':
+          return docs.length;
+        case 'Comments Num':
+          return '0';
+        case 'Operating Days':
+          return differenceInCalendarDays(new Date(), new Date(docs.at(-1)?.date || ''));
+        case 'Last Activity':
+          return format(parseISO(docs.at(-1)?.date), 'LLLL d, yyyy');
+        default:
+          return '';
+      }
+    },
+    [docs]
+  );
+
   return (
-    <div className='flex h-full w-[240px] flex-none flex-col justify-start overflow-hidden bg-[#1D1F20] pb-[25px]'>
+    <div className='hidden h-full w-[240px] flex-none flex-col justify-start overflow-hidden bg-[#1D1F20] pb-[25px] xl:flex'>
       <div className='flex flex-col overflow-hidden'>
         <div className='relative flex h-[60px] w-full flex-none flex-row'>
           {TOP_MENU.map((item, index) => (
@@ -94,8 +111,11 @@ export default function Sliderbar() {
                 <IconFont name={item.icon} size={14} color='#fff' />
                 <div className='pl-[5px] text-xs'>{item.label}</div>
               </div>
-              <div className='flex flex-none justify-center rounded-[10px] bg-[#5dbde7] px-[7px] py-[3px] text-xs font-bold text-white'>
-                11
+              <div
+                style={{ fontSize: item.label === 'Last Activity' ? '7px' : '12px' }}
+                className='flex flex-none justify-center rounded-[10px] bg-[#5dbde7] px-[7px] py-[3px] text-xs font-bold text-white'
+              >
+                {getContent(item.label)}
               </div>
             </div>
           ))}
@@ -103,4 +123,6 @@ export default function Sliderbar() {
       </div>
     </div>
   );
-}
+};
+
+export default memo(Sliderbar);
